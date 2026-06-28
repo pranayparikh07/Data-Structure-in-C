@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 int main(void) {
-	int arr[5] = {5, 2, 4, 1, 3};
+	int arr[5] = {2, 1, 4, 3, 8};
 	int i, j, temp;
 
 	for (i = 0; i < 4; i++) {
-		for (j = i + 1; j < 5; j++) {
+		for (j = i+1; j < 5; j++) {
 			if (arr[i] > arr[j]) {
 				temp = arr[i];
 				arr[i] = arr[j];
