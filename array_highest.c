@@ -10,6 +10,7 @@ int main(){
     for(int i=1;i<5;i++){
         if(a[i] > max){
             max = a[i];
+            
         }
     }
     printf("The highest number in the array is: %d\n", max);
