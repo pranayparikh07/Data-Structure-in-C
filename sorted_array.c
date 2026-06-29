@@ -2,8 +2,13 @@
 
 int main(void)
 {
-	int arr[5] = {2, 1, 4, 3, 8};
+	int arr[5];
 	int i, j, temp;
+	for (i = 0; i < 5; i++)
+	{
+		printf("Enter value for a[%d]: ", i);
+		scanf("%d", &arr[i]);
+	}
 
 	for (i = 0; i < 4; i++)
 	{
