@@ -2,7 +2,7 @@
 #include<stdio.h>
 int main(){
     int a[5], max;
-    for(int i=0;i<5;i++){
+    for(int i=0;i<5;i++){   
         printf("Enter element for a[%d]: ", i);
         scanf("%d",&a[i]);
     }
