@@ -1,4 +1,4 @@
-//implement push and pop in stack
+//implement push and pop and display in stack
 #include<stdio.h>
 int stack [5], top = -1, max = 5;
 void push (int value){
