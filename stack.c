@@ -35,7 +35,7 @@ void display (){
 }
 void main(){
     int choice, value;
-    while (10){
+    while (1){
         printf("1. Push\n2. Pop\n3. Display\n4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
