@@ -73,25 +73,25 @@ int main()
 
         switch (choice)
         {
-            case 1:
-                printf("Enter value to push: ");
-                scanf("%d", &value);
-                push(stack, &top, size, value);
-                break;
+        case 1:
+            printf("Enter value to push: ");
+            scanf("%d", &value);
+            push(stack, &top, size, value);
+            break;
 
-            case 2:
-                pop(stack, &top);
-                break;
+        case 2:
+            pop(stack, &top);
+            break;
 
-            case 3:
-                display(stack, top);
-                break;
+        case 3:
+            display(stack, top);
+            break;
 
-            case 4:
-                return 0;
+        case 4:
+            return 0;
 
-            default:
-                printf("Invalid choice\n");
+        default:
+            printf("Invalid choice\n");
         }
     }
 
