@@ -3,7 +3,7 @@ struct cricketer{
     char name[20];
     int age;
     float strikerate;
-    int matches}c;
+    int matches;}c;
 
 int main(){
     printf("Enter the name of the cricketer: ");
