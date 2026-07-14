@@ -19,7 +19,7 @@ void insert() {
     scanf("%d", &newNode->data);
     newNode->next = NULL;
     
-    if (head == NULL) {b
+    if (head == NULL) {
         head = newNode;
     } else {
         struct Node* temp = head;
