@@ -1,3 +1,6 @@
+/*(d) Delete a first node of the linked list.
+(e) Delete a node before specified position.
+(f) Delete a node after specified position.*/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -87,6 +90,89 @@ void insert_ascending(int value)
         }
     }
 }
+void delete_first(){
+    struct node *tmp = head;
+    if(head==NULL){
+        printf("List is empty\n");
+        return;
+    } 
+    if(head==tail){
+        head=tail=NULL;
+    }
+    else{
+        head=head->next;
+    }
+    free(tmp);
+}
+
+void delete_before(int position)
+{
+    if (head == NULL || position <= 1)
+    {
+        printf("No node exists before the specified position\n");
+        return;
+    }
+
+    if (position == 2)
+    {
+        struct node *tmp = head;
+        head = head->next;
+        free(tmp);
+        return;
+    }
+
+    struct node *prev = head;
+    struct node *current = head->next;
+    int count = 2;
+
+    while (current->next != NULL && count < position - 1)
+    {
+        prev = current;
+        current = current->next;
+        count++;
+    }
+
+    if (count != position - 1)
+    {
+        printf("Invalid position\n");
+        return;
+    }
+
+    prev->next = current;
+    if (prev == tail)
+        tail = current;
+    free(prev);
+}
+
+void delete_after(int position)
+{
+    if(head==NULL || position <= 0)
+    {
+        printf("Invalid position or list is empty\n");
+        return;
+    }
+
+    struct node *current = head;
+    int count = 1;
+    while(current != NULL && count < position)
+    {
+        current = current->next;
+        count++;
+    }
+
+    if(current == NULL || current->next == NULL)
+    {
+        printf("No node exists after the specified position\n");
+        return;
+    }
+
+    struct node *tmp = current->next;
+    current->next = tmp->next;
+    if (tmp == tail)
+        tail = current;
+    free(tmp);
+}
+
 void display()
 {
     struct node *current = head;
@@ -102,11 +188,13 @@ void display()
     }
     printf("NULL\n");
 }
-void main(){
+int main(void){
     int choice, value;
-    printf("\n1. Insert at front\n2. Insert at end\n3. Insert in ascending order\n4. Display list\n5. Exit\n");
-    scanf("%d", &choice);
+    printf("\n1. Insert at front\n2. Insert at end\n3. Insert in ascending order\n4. Display list\n5. Delete First Node\n6. Delete Node before Specified Position\n7. Delete Node after Specified Position\n 8. Exit\n");
+   
     while(1){
+        printf("\nEnter your choice: "); 
+        scanf("%d", &choice);
         switch(choice){
             case 1:
                 printf("Enter value to insert at front: ");
@@ -127,8 +215,23 @@ void main(){
                 display();
                 break;
             case 5:
+                delete_first();
+                break;
+            case 6:
+                printf("Enter position before which to delete: ");
+                scanf("%d", &value);
+                delete_before(value);
+                break;
+            case 7:
+                printf("Enter position after which to delete: ");
+                scanf("%d", &value);
+                delete_after(value);
+                break;
+            case 8:
                 printf("Exiting...\n");
-                exit(0);
+                while (head != NULL)
+                    delete_first();
+                return 0;
             default:
                 printf("Invalid choice. Please try again.\n");
                 break;
