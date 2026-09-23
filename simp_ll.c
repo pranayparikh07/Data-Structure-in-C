@@ -1,6 +1,3 @@
-/*(d) Delete a first node of the linked list.
-(e) Delete a node before specified position.
-(f) Delete a node after specified position.*/
 #include <stdio.h>
 #include <stdlib.h>
 
